@@ -13,4 +13,10 @@
     <asp:Login ID="Login1" runat="server"></asp:Login>
     <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
     <asp:TextBox ID="hakukentta" runat="server"></asp:TextBox>
+
+
+    <asp:View ID="View1" runat="server"></asp:View>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+
+    <asp:DataList ID="DataList1" runat="server"></asp:DataList>
 </asp:Content>
