@@ -10,13 +10,11 @@
     Tähän täytyy saada SQL tietokanta, joka hakee tiedot
     Koirarekisteri? hakee koirien tiedot
     <asp:Label ID="Label1" runat="server" Text="0"></asp:Label> 
-    <asp:Login ID="Login1" runat="server"></asp:Login>
-    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
-    <asp:TextBox ID="hakukentta" runat="server"></asp:TextBox>
 
+    Haku:
+    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Hae" />
+    <asp:TextBox ID="hakukentta" runat="server"></asp:TextBox>
+    <asp:TextBox ID="hakutulokset" runat="server"></asp:TextBox>
 
     <asp:View ID="View1" runat="server"></asp:View>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-
-    <asp:DataList ID="DataList1" runat="server"></asp:DataList>
 </asp:Content>
