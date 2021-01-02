@@ -47,7 +47,8 @@ namespace Koirat1.Controllers
         /// <summary>
         /// Lisätään uusi koira tietokantaan
         /// </summary>
-        /// <param name="koira">lisättävä koira</param>
+        /// <param name="koira">Lisättävä koira</param>
+        /// <returns>statuskoodin ja koiran tiedot, jos lisäys onnistui, bad request jos jotain menee pieleen </returns>
         public HttpResponseMessage Post([FromBody]Koirat koira)
         {
             try
@@ -69,6 +70,37 @@ namespace Koirat1.Controllers
             }
         }
 
+        /// <summary>
+        /// Poistetaan koira tietyllä ID:llä tietokannasta
+        /// </summary>
+        /// <param name="ID"> poistettavan koiran ID </param>
+        /// <returns>HTTP-vastauksen OK, jos poisto onnistui, BAD request jos ei onnistunut. </returns>
+        public HttpResponseMessage Delete(int ID)
+        {
+            try
+            {
+                using (KoiratDBEntities entities = new KoiratDBEntities())
+                {
+                    var entity = entities.Koirats.FirstOrDefault(e => e.id == ID);
+                    if (entity == null)
+                    {
+                        return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Koira Id:llä: " + ID.ToString() + " ei löytynyt");
+                    }
+
+                    else
+                    {
+                        entities.Koirats.Remove(entity);
+                        entities.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK);
+                    }
+
+                }
+            }
+            catch (Exception ex) //jos joku menee pieleen
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
 
 
             //https://www.youtube.com/watch?v=BnJ8UI-tI-E&ab_channel=ProgrammingwithMosh mistä löytyisi ohje napin actioniin?
