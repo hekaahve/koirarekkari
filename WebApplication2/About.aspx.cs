@@ -29,7 +29,7 @@ namespace WebApplication2
         }
 
         /// <summary>
-        /// Hakee koiran tai koirien tiedot nimellä
+        /// Hakee koiran tai koirien tiedot nimellä?
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
